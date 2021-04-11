@@ -18,6 +18,8 @@ import genderdecoder3
 job_description = "Example job description text"
 print(genderdecoder3.assess(job_description))
 
-# {'result': 'neutral', 'explanation': "This job ad doesn't use any words that are stereotypically masculine and stereotypically feminine. It probably won't be off-putting to men or women applicants.", 'masculine_coded_words': [], 'feminine_coded_words': []}
+# {'result': 'neutral', 'explanation': "This job ad doesn't use any words that are stereotypically 
+# masculine and stereotypically feminine. It probably won't be off-putting to men or women 
+# applicants.", 'masculine_coded_words': [], 'feminine_coded_words': []}
 
 ```
