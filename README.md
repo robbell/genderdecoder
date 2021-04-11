@@ -1,4 +1,4 @@
-#genderdecoder
+# Gender Decoder
 
 This is a python package for assessing gender-coded words in a job adverts.
 
@@ -7,16 +7,16 @@ Danielle Gaucher and Justin Friesen and Aaron C. Kay.
 
 ##Install
 
-```
+```sh
 pip install genderdecoder
 ```
 
 ##Usage
 
-```
+```python
 import genderdecoder
 
 job_description = "Example job description text"
-print job_description.assess(job_description)
+print(genderdecoder.assess(job_description))
 
 ```
