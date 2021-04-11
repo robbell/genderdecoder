@@ -47,7 +47,9 @@ feminine_coded_words = [
     "enthusias",
     "inclusive",
     "yield",
-    "shar"]
+    "share",
+    "sharin"
+    ]
 
 masculine_coded_words = [
     "active",
@@ -81,7 +83,7 @@ masculine_coded_words = [
     "headstrong",
     "hierarch",
     "hostil",
-    "implusive",
+    "impulsive",
     "independen",
     "individual",
     "intellect",
@@ -101,4 +103,5 @@ masculine_coded_words = [
     "selfsufficien",
     "stubborn",
     "superior",
-    "unreasonab"]
+    "unreasonab"
+    ]

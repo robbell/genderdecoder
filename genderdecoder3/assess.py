@@ -1,5 +1,5 @@
 import re
-import wordlists
+from . import wordlists
 
 def assess(ad_text):
     ad_text = ''.join([i if ord(i) < 128 else ' ' for i in ad_text])
