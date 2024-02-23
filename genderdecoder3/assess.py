@@ -1,19 +1,18 @@
 import re
 from . import wordlists
 
+def _make_coded_words_regex(coded_words):
+    regex_group = '|'.join(coded_words)
+    return re.compile(f'\\b(({regex_group})\\w*)\\b', re.IGNORECASE)
+
+_NONASCII_RE = re.compile(r'[^\x00-\x7f]')
+_FEMININE_RE = _make_coded_words_regex(wordlists.feminine_coded_words)
+_MASCULINE_RE = _make_coded_words_regex(wordlists.masculine_coded_words)
+
 def assess(ad_text):
-    ad_text = ''.join([i if ord(i) < 128 else ' ' for i in ad_text])
-    ad_text = re.sub("[\\s]", " ", ad_text, 0, 0)
-    ad_text = re.sub("[\.\t\,\:;\(\)\.]", "", ad_text, 0, 0).split(" ")
-    ad_text = [ad for ad in ad_text if ad != ""]
-        
-    masculine_coded_words = [adword for adword in ad_text
-        for word in wordlists.masculine_coded_words
-        if adword.startswith(word)]
-    
-    feminine_coded_words = [adword for adword in ad_text
-        for word in wordlists.feminine_coded_words
-        if adword.startswith(word)]
+    ad_text = _NONASCII_RE.sub(' ', ad_text)
+    feminine_coded_words = [word[0] for word in _FEMININE_RE.findall(ad_text)]
+    masculine_coded_words = [word[0] for word in _MASCULINE_RE.findall(ad_text)]
     
     if feminine_coded_words and not masculine_coded_words:
         result = "strongly feminine-coded"
